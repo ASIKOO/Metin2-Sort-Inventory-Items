@@ -2,7 +2,9 @@
 static bool SortMyItems(const LPITEM & s1, const LPITEM & s2) 
 { 
 	/// change what you want
-	return s1->GetName() < s2->GetName();
+	std::string name(s1->GetName());
+	std::string name2(s2->GetName());
+	return name < name2;
 	// return s1->GetVnum() < s2->GetVnum();
 }
 void CHARACTER::EditMyInven()
@@ -38,8 +40,14 @@ void CHARACTER::EditMyInven()
 	itertype(v) it = v.begin();
 	while (it != v.end()) {	
 		LPITEM item = *(it++);
-		if (item) 
-			AutoGiveItem(item);
+		if (item) {
+			TItemTable * p = ITEM_MANAGER::instance().GetTable(item->GetVnum());
+			/// isn't same function !
+			if (p && p->dwFlags & ITEM_FLAG_STACKABLE && p->bType != ITEM_BLEND)
+				AutoGiveItem(item->GetVnum(), item->GetCount()); // create new item for stackable items
+			else
+				AutoGiveItem(item); // copy orginal items
+		}
 	}
 	
 	///message
