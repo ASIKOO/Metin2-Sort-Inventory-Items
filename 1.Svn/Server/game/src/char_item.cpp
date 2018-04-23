@@ -1,8 +1,10 @@
+//Coppied from cTolip's Topic
+
 //Find
 static bool FN_check_item_socket(LPITEM item)
 {
 
-///Add(Coppied from cTolip)
+///Add
 	if (item->GetType() == ITEM_USE && item->GetSubType() == USE_AFFECT)
 		return true;
 
