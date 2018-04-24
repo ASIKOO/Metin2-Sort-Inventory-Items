@@ -1,4 +1,5 @@
 ///Add
+#ifdef ENABLE_SORT_INVEN
 static bool SortMyItems(const LPITEM & s1, const LPITEM & s2) 
 { 
 	/// change what you want
@@ -44,7 +45,7 @@ void CHARACTER::EditMyInven()
 			TItemTable * p = ITEM_MANAGER::instance().GetTable(item->GetVnum());
 			/// isn't same function !
 			if (p && p->dwFlags & ITEM_FLAG_STACKABLE && p->bType != ITEM_BLEND)
-				AutoGiveItem(item->GetVnum(), item->GetCount()); // create new item for stackable items
+				AutoGiveItem(item->GetVnum(), item->GetCount(), -1, false); // create new item for stackable items + msg bug fixed
 			else
 				AutoGiveItem(item); // copy orginal items
 		}
@@ -53,3 +54,4 @@ void CHARACTER::EditMyInven()
 	///message
 	ChatPacket(CHAT_TYPE_INFO, "Your items sorted.");
 }
+#endif
