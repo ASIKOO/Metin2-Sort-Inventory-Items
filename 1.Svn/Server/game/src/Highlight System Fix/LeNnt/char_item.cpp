@@ -1,11 +1,11 @@
 // Find
-	void CHARACTER::AutoGiveItem(LPITEM item, bool longOwnerShip)
+void CHARACTER::AutoGiveItem(LPITEM item, bool longOwnerShip)
 	
 ///Change
 #ifdef ENABLE_SORT_INVEN
-void			AutoGiveItem(LPITEM item, bool longOwnerShip, bool highlight)
+void AutoGiveItem(LPITEM item, bool longOwnerShip, bool highlight)
 #else
-void			AutoGiveItem(LPITEM item, bool longOwnerShip)
+void AutoGiveItem(LPITEM item, bool longOwnerShip)
 #endif
 
 //Find
