@@ -2,4 +2,6 @@
 		void			ClearItem();
 
 ///Add
-		void			EditMyInven();
+	#ifdef ENABLE_SORT_INVEN	
+	void			EditMyInven();
+	#endif
