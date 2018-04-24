@@ -3,5 +3,5 @@
 
 ///Add
 	#ifdef ENABLE_SORT_INVEN	
-	void			EditMyInven();
+		void			EditMyInven();
 	#endif
