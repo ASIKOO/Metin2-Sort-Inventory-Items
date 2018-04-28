@@ -5,7 +5,7 @@ void CHARACTER::EditMyInven()
 {
 	if (IsDead()) return;
 	static std::vector<LPITEM> v;
-  LPITEM myitems;
+  	LPITEM myitems;
 	
 	v.clear();
 #ifdef ENABLE_EXTEND_INVEN_SYSTEM
@@ -14,18 +14,17 @@ void CHARACTER::EditMyInven()
 	auto size = INVENTORY_MAX_NUM;
 #endif
 
-	for (auto i = 0; i < size; size++)
-	{
-		 if (!(myitems = GetInventoryItem(i))) 
-			 continue;
-       
-	  v.push_back(myitems);	
-	  myitems->RemoveFromCharacter();
+	for (auto i = 0; i < size; size++) {
+	if (!(myitems = GetInventoryItem(i))) 
+		continue;
+
+	v.push_back(myitems);	
+	myitems->RemoveFromCharacter();
 	}
-  std::sort(v.begin(), v.end(), [] (const LPITEM & a, const LPITEM & b) -> 
+ 	 std::sort(v.begin(), v.end(), [] (const LPITEM & a, const LPITEM & b) -> 
 	bool
 	{ 
-	  std::string name(a->GetName());
+	  	std::string name(a->GetName());
 		std::string name2(b->GetName());
 		return name < name2;
 		// return s1->GetVnum() < s2->GetVnum();
