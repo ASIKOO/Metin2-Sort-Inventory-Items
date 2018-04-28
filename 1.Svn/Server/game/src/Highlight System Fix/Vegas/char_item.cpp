@@ -3,9 +3,9 @@ void CHARACTER::AutoGiveItem(LPITEM item, bool longOwnerShip)
 	
 ///Change
 #ifdef ENABLE_SORT_INVEN
-void			AutoGiveItem(LPITEM item, bool longOwnerShip, bool highlight)
+void CHARACTER::AutoGiveItem(LPITEM item, bool longOwnerShip, bool highlight)
 #else
-void			AutoGiveItem(LPITEM item, bool longOwnerShip)
+void CHARACTER::AutoGiveItem(LPITEM item, bool longOwnerShip)
 #endif
 
 //Find
@@ -19,9 +19,9 @@ void			AutoGiveItem(LPITEM item, bool longOwnerShip)
 			item->AddToCharacter(this, TItemPos(DRAGON_SOUL_INVENTORY, cell));
 		else
 		#ifdef ENABLE_SORT_INVEN
-			item->AddToCharacter(this, TItemPos(INVENTORY, cell));
-		#else
 			item->AddToCharacter(this, TItemPos(INVENTORY, cell), highlight);
+		#else
+			item->AddToCharacter(this, TItemPos(INVENTORY, cell));
 		#endif
 		
 //Find
@@ -29,9 +29,9 @@ void			AutoGiveItem(LPITEM item, bool longOwnerShip)
 	
 ///Change
 #ifdef ENABLE_SORT_INVEN
-	LPITEM CHARACTER::AutoGiveItem(DWORD dwItemVnum, BYTE bCount, int iRarePct, bool bMsg, bool highlight)
+LPITEM CHARACTER::AutoGiveItem(DWORD dwItemVnum, BYTE bCount, int iRarePct, bool bMsg, bool highlight)
 #else
-	LPITEM CHARACTER::AutoGiveItem(DWORD dwItemVnum, BYTE bCount, int iRarePct, bool bMsg)
+LPITEM CHARACTER::AutoGiveItem(DWORD dwItemVnum, BYTE bCount, int iRarePct, bool bMsg)
 #endif
 
 //Find
@@ -45,7 +45,7 @@ void			AutoGiveItem(LPITEM item, bool longOwnerShip)
 			item->AddToCharacter(this, TItemPos(DRAGON_SOUL_INVENTORY, iEmptyCell));
 		else
 		#ifdef ENABLE_SORT_INVEN
-			item->AddToCharacter(this, TItemPos(INVENTORY, iEmptyCell));
-		#else
 			item->AddToCharacter(this, TItemPos(INVENTORY, iEmptyCell), highlight);
+		#else
+			item->AddToCharacter(this, TItemPos(INVENTORY, iEmptyCell));
 		#endif
