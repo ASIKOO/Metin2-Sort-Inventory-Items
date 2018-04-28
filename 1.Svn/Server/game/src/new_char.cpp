@@ -15,13 +15,12 @@ void CHARACTER::EditMyInven()
 #endif
 
 	for (auto i = 0; i < size; size++) {
-	if (!(myitems = GetInventoryItem(i))) 
-		continue;
-
-	v.push_back(myitems);	
-	myitems->RemoveFromCharacter();
+		if (!(myitems = GetInventoryItem(i))) 
+			continue;
+		v.push_back(myitems);	
+		myitems->RemoveFromCharacter();
 	}
- 	 std::sort(v.begin(), v.end(), [] (const LPITEM & a, const LPITEM & b) -> 
+ 	std::sort(v.begin(), v.end(), [] (const LPITEM & a, const LPITEM & b) -> 
 	bool
 	{ 
 	  	std::string name(a->GetName());
