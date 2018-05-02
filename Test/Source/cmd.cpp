@@ -2,7 +2,7 @@
 #ifdef ENABLE_SORT_INVEN
 ACMD(do_item_check)
 {
-	ch-EditMyInven();
+	ch->EditMyInven();
 }
 #endif
 
