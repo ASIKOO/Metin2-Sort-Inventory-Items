@@ -1,4 +1,4 @@
-//Coppied from cTolip's Topic
+//Copied from cTolip's Topic
 
 //Find
 static bool FN_check_item_socket(LPITEM item)
